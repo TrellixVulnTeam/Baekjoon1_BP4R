@@ -1,0 +1,6 @@
+inp = input().split(" ")
+x = int(inp[0])
+y = int(inp[1])
+w = int(inp[2])
+h = int(inp[3])
+print(min(x,w-x,y,h-y))

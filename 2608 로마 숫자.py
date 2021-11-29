@@ -1,0 +1,2 @@
+fgreek = input()
+sgreek = input()

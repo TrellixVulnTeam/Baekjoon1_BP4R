@@ -1,0 +1,2 @@
+# use eval()
+# brute forcing
