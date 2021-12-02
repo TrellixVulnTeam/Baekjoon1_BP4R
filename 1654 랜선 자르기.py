@@ -1,17 +1,27 @@
 import sys
 lst = []
 K, N = map(int, sys.stdin.readline().split())
-length = 10000000000
 for _ in range(K):
     lst.append(int(sys.stdin.readline()))
-mid = length//2
+
+length = max(lst)
 high = length
-low = 0
-while True:
+low = 1
+
+while low <= high:
+    mid = (high + low) // 2
+    # print(mid)
     num = 0
     for n in lst:
         num += n // mid
-    if num < N:
+    if num >= N:
         low = mid + 1
-    elif num > N:
+    else:
         high = mid - 1
+
+    # print(low, high)
+print(high)
+    
+            
+        
+        
