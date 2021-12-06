@@ -1,7 +1,6 @@
 import sys
 
-start = time.time()
-M, N = map(int, input().split())
+M, N = map(int, sys.stdin.readline().split())
 lst = [True for n in range(0, N + 1)]
 
 m = int(pow(N, 0.5))
