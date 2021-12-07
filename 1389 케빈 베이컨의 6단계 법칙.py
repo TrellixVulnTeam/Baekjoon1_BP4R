@@ -6,11 +6,12 @@ def KEVIN_BFS(V):
     count = 0
     not_visited = deque([V])
     visited = []
+    distance = 0
     while not_visited:
         node = not_visited.popleft()
         if node not in visited:
-            count += 1
-            visited.append(node)
+            visited.append((node, distance))
+            distance += 1
             not_visited.extend(graph[node])
     answer[V] = count
 
