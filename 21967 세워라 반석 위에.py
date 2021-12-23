@@ -22,9 +22,7 @@ def main():
             answer = temp
 
 
-    print(answer)
-
+    sys.stdout.write(answer)
 
 if __name__ == '__main__':
     main()
-
