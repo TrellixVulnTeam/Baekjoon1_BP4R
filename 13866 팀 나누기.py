@@ -1,0 +1,6 @@
+lst = list(map(int, input().split()))
+a = max(lst) + min(lst)
+lst.pop(lst.index(max(lst)))
+lst.pop(lst.index(min(lst)))
+b = sum(lst)
+print(abs(a - b))

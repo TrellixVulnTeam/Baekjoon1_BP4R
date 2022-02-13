@@ -1,28 +1,31 @@
 import sys
-def main():
-    N = int(sys.stdin.readline().strip())
-    lst = list(map(int, sys.stdin.readline().strip().split(" ")))
-    answer = 1
-    for n in range(0, N):
-        temp = 1
-        if n == N - 1:
-            continue
-        minimum = lst[n]
-        maximum = lst[n]
-        for m in range(n + 1, N):
-            if lst[m] < minimum:
-                minimum = lst[m]
-            if lst[m] > maximum:
-                maximum = lst[m]
-        
-            if maximum - minimum > 2:
-                break
-            temp += 1
-        if temp > answer:
-            answer = temp
+from collections import deque
+N = int(sys.stdin.readline().strip())
+lst = list(map(int, sys.stdin.readline().strip().split()))
+deq = deque([])
+checker = [0 for n in range(11)]
+answer = 0 
 
+def check():
+    a = 0
+    b = 0
+    for k in range(1, 11):
+        if checker[k] > 0:
+            a = k
+            break
+    for h in range(10, 0, -1):
+        if checker[h] > 0:
+            b = h
+            break
+    return b - a
 
-    sys.stdout.write(answer)
-
-if __name__ == '__main__':
-    main()
+for i in range(0, len(lst)):
+    deq.append(lst[i])
+    checker[lst[i]] += 1
+    while check() > 2 and deq:
+        checker[deq[0]] -= 1
+        deq.popleft()
+    answer = max(answer, len(deq))
+    
+    
+print(answer)
