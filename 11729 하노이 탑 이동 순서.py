@@ -8,6 +8,6 @@ def towerOfHanoi(N, source, destination, auxiliary):
 
 
 N = int(input())
-print(N**2-1)
+print(2**N-1)
 towerOfHanoi(N, '1', '3', '2')
 
