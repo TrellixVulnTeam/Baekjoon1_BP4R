@@ -7,7 +7,7 @@ def solve(l):
             length += 1
         else:
             current = l[i]
-            maximum = max(length, answer)
+            answer = max(length, answer)
             length = 0
 
             
