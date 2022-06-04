@@ -1,20 +1,13 @@
-import sys
-t = int(sys.stdin.readline().strip())
-d = {1: 11, 2: 5, 3: 3}
+def f(n):
+    if n == 1 or n == 2:
+        return n
+    elif n == 3:
+        return 4
+    else:
+        return f(n - 3) + f(n - 2) + f(n - 1)
 
-def combination()
+N = int(input())
+for _ in range(N):
+    a = int(input())
+    print(f(a))
 
-for _ in range(t):
-    answer = 0
-    n = int(sys.stdin.readline().strip())
-    for i in range(0, 11):
-        for j in range(0, 11):
-            for k in range(0, 11):
-                how = 0
-                s = 0
-                for var in [i, j, k]:
-                    if var > 0:
-                        how += 1
-                if i * 1 + j * 2 + k * 3 == n:
-                    
-    print(answer)

@@ -6,6 +6,7 @@ for _ in range(t):
     p = sys.stdin.readline().strip()
     n = int(sys.stdin.readline().strip())
     if n == 0:
+        a = input()
         if 'D' in p:
             print("error")
             continue
@@ -14,7 +15,8 @@ for _ in range(t):
             continue
     if n == 1:
         l = sys.stdin.readline().strip()
-        deq = deque(list(map(int, l[1:-1])))
+        deq = deque([int(l[1:-1])])
+
     
     else:
         l = sys.stdin.readline().strip()
@@ -29,14 +31,21 @@ for _ in range(t):
                 try:
                     deq.pop()
                 except:
-                    print("")
+                    print("error")
+                    b = False
+                    break
             else:
                 try:
                     deq.popleft()
                 except:
                     print("error")
+                    b = False
                     break
     if r:
         deq.reverse()
-    print(str(deq)[6:-1])
+    if b:
+        for a in str(deq)[6:-1]:
+            if a != ' ':
+                print(a, end = '')
+        print()
             

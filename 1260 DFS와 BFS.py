@@ -2,32 +2,71 @@ from collections import deque
 import sys
 
 def BFS(V):
-    not_visited = deque()
+    deq = deque()
     visited = []
-    not_visited.append(V)
-    while not_visited:
-        node = not_visited.popleft()
+    deq.extend(graph[V])
+    visited.append(V)
+    while deq:
+        node = deq.popleft()
         if node not in visited:
+            deq.extend(graph[node])
             visited.append(node)
-            not_visited.extend(graph[node])
     for v in visited:
         print(v, end= ' ')
 
 
 def DFS(V):
-    not_visited, visited = list(), list()
-    not_visited.append(V)
-
+    not_visited = []
+    visited = []
+    visited.append(V)
+    not_visited.extend(DFS_graph[V])
     while not_visited:
         node = not_visited.pop()
-
         if node not in visited:
             visited.append(node)
-
             not_visited.extend(DFS_graph[node])
-    for v in visited[:-1]:
+    for v in visited:
         print(v, end= ' ')
-    print(visited[-1])
+
+    
+
+
+
+
+
+
+
+
+
+
+
+# def BFS(V):
+#     not_visited = deque()
+#     visited = []
+#     not_visited.append(V)
+#     while not_visited:
+#         node = not_visited.popleft()
+#         if node not in visited:
+#             visited.append(node)
+#             not_visited.extend(graph[node])
+#     for v in visited:
+#         print(v, end= ' ')
+
+
+# def DFS(V):
+#     not_visited, visited = list(), list()
+#     not_visited.append(V)
+
+#     while not_visited:
+#         node = not_visited.pop()
+
+#         if node not in visited:
+#             visited.append(node)
+
+#             not_visited.extend(DFS_graph[node])
+#     for v in visited[:-1]:
+#         print(v, end= ' ')
+#     print(visited[-1])
     
 
 
@@ -43,6 +82,7 @@ if __name__ == '__main__':
         g.sort()
     DFS_graph = [reversed(sorted(x)) for x in graph]
     DFS(V)
+    print()
     BFS(V)
 
 

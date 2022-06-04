@@ -8,9 +8,9 @@ while True:
         quit()
     answer = sys.stdin.readline().strip()
     if answer == "too high":
-        maximum = min(maximum, guess)
+        maximum = min(maximum, guess - 1)
     elif answer == "too low":
-        minimum = max(minimum, guess)
+        minimum = max(minimum, guess + 1)
     elif answer == "right on":
         if minimum <= guess <= maximum:
             print("Stan may be honest")
